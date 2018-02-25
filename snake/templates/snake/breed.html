@@ -1,0 +1,20 @@
+{% for snake in snakes %}
+    <li style="width: 227px; height: 188px;">
+        <div class="featured-projects">
+            <div class="featured-projects-image">
+                <a href="{% url 'snake:details' snake.family.slug snake.slug %}" title="Snake-Breeder - Serpents {{ snake.scientific_name }}">
+                    {% for image in snake.snakesalbum.all %}
+                        {% if forloop.first %}
+                            <img src="{{ image.picture.url }}" class="imgOpa" alt="Snake-Breeder - Serpents {{ snake.scientific_name }}">
+                        {% endif %}
+                    {% endfor %}
+                </a>
+            </div>
+            <div class="featured-projects-content">
+                <p>
+                    <a href="{% url 'snake:details' snake.family.slug snake.slug %}" title="Snake-Breeder - Serpents {{ snake.scientific_name }}">{{ snake.scientific_name }}</a>
+                </p>
+            </div>
+        </div>
+    </li>
+{% endfor %}

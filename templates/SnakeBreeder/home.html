@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block page %}Accueil{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">Accueil</li>
+{% endblock %}
+
+
+{% block title %}{% endblock %}
+
+{% block slideshow %}
+<div class="camera_wrap pattern_4 camera_emboss" id="camera_wrap_4">
+        {% for pictures in album.snakebreedersalbum.all %}
+            <div data-src="{{ pictures.picture.url }}">
+                <div class="camera_caption fadeFromTop">
+                    <!--<h1>Thailande 2008</h1>
+                    <span>
+                        Petit show avec un KINGCOBRA de 3.20m.
+                    </span>-->
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid graysection">
+        {% for page in flatpages %}
+            <div class="span4">
+                <div class="grey-box-icon">
+                    <!--<div class="icon-box-top grey-box-icon-pos">
+                            <i class="fontawesome-icon medium circle-white center icon-ok-sign"></i>
+                        </div>-->
+                        <!--icon box top -->
+                    <h4>{{ page.title }}</h4>
+                    <p>
+                        {{ page.content|truncatewords:20 }}
+                    </p>
+                    <p>
+                        <a href="{{ page.url }}" title="Snake-Breeder - {{ page.title }}" style="font-weight: bold;">Plus d'informations →</a>
+                    </p>
+                </div>
+                <!--grey box -->
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

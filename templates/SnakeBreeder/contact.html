@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block page %}Contact{% endblock %}
+
+{% block title %}Contact{% endblock %}
+
+{% block breadcrumb %}
+    <li class="active">Contact</li>
+{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+        <div class="span6">
+            
+            <form action="/contact/send/" method="POST" name="MYFORM" id="MYFORM">
+                {% csrf_token %}
+                <p><label for="id_name">Nom:</label> <input id="id_name" maxlength="255" name="name" type="text" /></p>
+                <p><label for="id_email">Email:</label> <input id="id_email" name="email" type="email" /></p>
+                <p><label for="id_message">Message:</label>
+                    <textarea cols="40" id="id_message" name="message" rows="10"></textarea>
+                </p>
+                <p><label for="id_captcha_1">Captcha:</label><img src="/captcha/image/40eb076c925c0629175bb99421b8a0066e8a2761/" alt="captcha" class="captcha" /> <input id="id_captcha_0" name="captcha_0" type="hidden" value="40eb076c925c0629175bb99421b8a0066e8a2761" /> <input id="id_captcha_1" name="captcha_1" type="text" /></p>
+                <input value="Envoyer" type="submit" id="Send" class="btn btn-primary top10">
+            </form>
+            <br/>
+        </div>
+        
+        <div class="span6">
+            <div class="box effect2">
+                <h3>Contact</h3>
+                <p>
+                    Si vous avez des questions sur des espèces que je détiens, que j&#39;ai détenues, qui m&#39;intéressent ou que je vends, veuillez remplir le formulaire ci-contre ou alors envoyez-moi directement un mail à: info@snake-breeder.com.
+                    Pas de réponse aux SMS !
+                    Merci de votre compréhension.	
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

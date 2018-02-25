@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block page %}{{ lizard.scientific_name }}{% endblock %}
+
+{% block title %}<i>{{ lizard.scientific_name }}</i>{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="#" title="Snake-Breeder - Lézards">Lézards</a> <span class="divider">/</span></li>
+    <li class="active">{{ lizard.scientific_name }}</li>
+{% endblock %}
+
+{% block slideshow %}
+    <div class="camera_wrap pattern_4 camera_emboss" id="camera_wrap_4">
+        {% for image in lizard.lizardsalbum.all %}
+            <div data-src="{{ image.picture.url }}">
+                <div class="camera_caption fadeFromTop">
+                    <!--<h1>Thailande 2008</h1>
+                    <span>
+                        Petit show avec un KINGCOBRA de 3.20m.
+                    </span>-->
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="span6">
+            <p>
+                <b>Maintenus:</b> {{ lizard.sex }}
+            </p>
+            <ul class="icons-ul">
+                    <li><i class="icon-li icon-ok"></i>Zone de répartition: {% for rep in lizard.repartition.all %}{{ rep.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+                    <li><i class="icon-li icon-ok"></i>Environnement: {% for env in lizard.environment.all %}{{ env.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+                    <li><i class="icon-li icon-ok"></i>Moeurs: {{ lizard.get_moeurs_display }}</li>
+                    <li><i class="icon-li icon-ok"></i>Mode de vie: {{ lizard.get_life_display }}</li>
+                <li><i class="icon-li icon-ok"></i>Type de reproduction: {{ lizard.get_reproduction_display }}</li> 
+            </ul>
+            <br/>
+        </div>
+        <div class="span6">
+            <div class="box effect2">
+                <h3>Informations complémentaires</h3>
+                <p>
+                    {{ lizard.description }}	
+                </p>
+            </div>
+        </div>
+        <!-- end description area -->
+    </div>
+{% endblock %}

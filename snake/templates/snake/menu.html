@@ -1,0 +1,3 @@
+{% for family in families %}
+    <li><a href="{% url 'snake:list' family.slug %}" title="Snake-Breeder - Serpents - {{ family.name }}">{{ family.name }}</a></li>
+{% endfor %}

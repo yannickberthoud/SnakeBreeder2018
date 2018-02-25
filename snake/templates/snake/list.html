@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block page %}
+    {% if family.name %}
+        {{ family.name }}
+        {% elif 'a-vendre' in request.path %}
+        À vendre
+    {% elif 'recherche' in request.path %}
+        Recherchés
+    {% elif 'anciens-serpents' %}
+        Anciens serpents
+    {% elif 'nouvelles-naissances' %}
+        Nouvelles naissances
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if family.name %}
+        {{ family.name }}
+        {% elif 'a-vendre' in request.path %}
+        À vendre
+    {% elif 'recherche' in request.path %}
+        Recherchés
+    {% elif 'anciens-serpents' %}
+        Anciens serpents
+    {% elif 'nouvelles-naissances' %}
+        Nouvelles naissances
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="#" title="Snake-Breeder - Serpents">Serpents</a> <span class="divider">/</span></li>
+    {% if family.name %}
+        <li class="active">{{ family.name }}</li>
+    {% elif 'a-vendre' in request.path %}
+        <li class="active">À vendre</li>
+    {% elif 'recherche' in request.path %}
+        <li class="active">Recherchés</li>
+    {% elif 'anciens-serpents' %}
+        <li class="active">Anciens serpents</li>
+    {% elif 'nouvelles-naissances' %}
+        <li class="active">Nouvelles naissances</li>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="top30">
+    {% if 'a-vendre' in request.path and not snakes %}
+        <p>Aucun serpent à vendre actuellement.</p>
+    {% elif 'recherche' in request.path and not snakes %}
+        <p>Aucune recherche d'espèce actuellement.</p>
+    {% else %}
+        {% for snake in snakes %}
+            <div class="boxportfolio4">
+                <div class="inneritem">
+                    <a href="{% url 'snake:details' snake.family.slug snake.slug %}" title="Snake-Breeder - Serpents - {{ snake.scientific_name }}">
+                        {% for image in snake.snakesalbum.all %}
+                            {% if forloop.first %}
+                                <img src="{{ image.picture.url }}" alt="Snake-Breeder - Serpents: {{ snake.scientific_name }}" />
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                    <i>{{ snake.scientific_name }}</i>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+{% endblock %}

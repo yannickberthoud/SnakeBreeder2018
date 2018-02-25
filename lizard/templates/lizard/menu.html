@@ -1,0 +1,3 @@
+{% for lizard in lizards %}
+    <li><a href="{% url 'lizard:details' lizard.slug %}" title="Snake-Breeder - Lézard - {{ lizard.scientific_name }}">{{ lizard.scientific_name }}</a></li>
+{% endfor %}
