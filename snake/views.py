@@ -19,6 +19,14 @@ class IndexView(generic.ListView):
         context['family'] = Family.objects.get(slug = self.kwargs['family_slug'])
         return context
 
+class NewBornView(generic.ListView):
+    template_name = 'snake/list.html'
+    context_object_name = 'snakes'
+
+    def get_queryset(self, **kwargs):
+        """Return the last five published questions."""
+        return Snake.objects.filter(newborn = True).order_by('family', 'scientific_name')
+
 class OldSnakeView(generic.ListView):
     template_name = 'snake/list.html'
     context_object_name = 'snakes'

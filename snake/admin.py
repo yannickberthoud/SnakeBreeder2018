@@ -24,7 +24,7 @@ class SnakeAdmin(admin.ModelAdmin):
         ('Toxicologie', {'fields': ['venom', 'dentition']}),
         ('Moeurs & Biotope', {'fields': ['moeurs', 'life', 'environment', 'repartition', 'reproduction']}),
         ('Achat & ventes', {'fields': ['business', 'price', 'price_couple']}),
-        ('Détention', {'fields': ['old']})
+        ('Détention', {'fields': ['old', 'newborn']})
     ]
     list_display = ('family', 'scientific_name', 'business', 'price', 'price_couple')
     list_filter = ['family', 'business']

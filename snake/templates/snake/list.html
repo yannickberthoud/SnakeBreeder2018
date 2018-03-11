@@ -7,24 +7,24 @@
         À vendre
     {% elif 'recherche' in request.path %}
         Recherchés
+    {% elif 'nouvelles-naissances' in request.path %}
+        Nouvelles naissances
     {% elif 'anciens-serpents' %}
         Anciens serpents
-    {% elif 'nouvelles-naissances' %}
-        Nouvelles naissances
     {% endif %}
 {% endblock %}
 
 {% block title %}
     {% if family.name %}
         {{ family.name }}
-        {% elif 'a-vendre' in request.path %}
+    {% elif 'a-vendre' in request.path %}
         À vendre
     {% elif 'recherche' in request.path %}
         Recherchés
+    {% elif 'nouvelles-naissances' in request.path %}
+        Nouvelles naissances
     {% elif 'anciens-serpents' %}
         Anciens serpents
-    {% elif 'nouvelles-naissances' %}
-        Nouvelles naissances
     {% endif %}
 {% endblock %}
 
@@ -36,10 +36,10 @@
         <li class="active">À vendre</li>
     {% elif 'recherche' in request.path %}
         <li class="active">Recherchés</li>
-    {% elif 'anciens-serpents' %}
-        <li class="active">Anciens serpents</li>
     {% elif 'nouvelles-naissances' %}
         <li class="active">Nouvelles naissances</li>
+    {% elif 'anciens-serpents' %}
+        <li class="active">Anciens serpents</li>
     {% endif %}
 {% endblock %}
 
@@ -49,6 +49,8 @@
         <p>Aucun serpent à vendre actuellement.</p>
     {% elif 'recherche' in request.path and not snakes %}
         <p>Aucune recherche d'espèce actuellement.</p>
+    {% elif 'nouvelles-naissances' in request.path and not snakes %}
+        <p>Aucune nouvelle naissance actuellement.</p>
     {% else %}
         {% for snake in snakes %}
             <div class="boxportfolio4">

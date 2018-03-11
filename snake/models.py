@@ -50,6 +50,7 @@ class Snake(Reptile):
     price_couple = models.FloatField(blank = True, null = True, verbose_name = "prix de couple")
     business = models.CharField(max_length = 1, choices = BUSINESS, default = ' ', verbose_name = "Achat ou vente", blank = True, null = True)
     old = models.BooleanField(blank = True, verbose_name = 'Ancien serpent')
+    newborn = models.BooleanField(blank = True, verbose_name = 'Nouvelles naissances')
 
     def __str__(self):
         return self.scientific_name

@@ -55,7 +55,7 @@ class="icon-phone"></i> Tel: +41 79 676 09 72
 							<li class="divider-vertical"></li>
 							<li class="dropdown{% if 'serpents' in request.path and not 'serpents/a-vendre' in request.path and not 'serpents/recherche' in request.path %} active selected{% endif %}"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Serpents <b class="caret"></b></a>
 							<ul class="dropdown-menu js-activated" style="display: none;">{% load snake %}{% families_urls %}
-								<li><a href="/elevages/serpents/dernieres-naissances/" title="Afficher toutes les naissances">Nouvelles naissances</a></li>
+								<li><a href="{% url 'snake:newborn' %}" title="Snake-Breeder - Voir mes nouvelles naissances">Nouvelles naissances</a></li>
 								<li><a href="{% url 'snake:old' %}" title="Snake-Breeder - Voir mes anciens serpents">Anciens serpents</a></li>
 								<!--<li><a href="/elevages/serpents/" title="Voir tout mes serpents">Tout voir</a></li>-->
 								<!--.dropdown-->
