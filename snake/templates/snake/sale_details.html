@@ -29,7 +29,7 @@
     <div class="row-fluid">
         <div class="span6">
             <p>
-                <b>disponibilité:</b> {{ snake.sex }}
+                <b>disponibilité(s):</b> {{ snake.sex }}
             </p>
             <ul class="icons-ul">
                 <li><i class="icon-li icon-ok"></i>Famille: {{ snake.family }}</li>
@@ -44,10 +44,7 @@
                 {% else %}
                     <li><i class="icon-li icon-ok"></i>Venin(s): non venimeux</li>
                 {% endif %}
-                    <li><i class="icon-li icon-ok"></i> Prix: CHF {{ snake.price|floatformat:2 }} </li>
-                {% if snake.price_couple %}
-                    <li><i class="icon-li icon-ok"></i> Prix de couple: CHF {{ snake.price_couple|floatformat:2 }} </li>
-                {% endif %}
+
             </ul>
             <br/>
         </div>
