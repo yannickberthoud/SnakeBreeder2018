@@ -1,6 +1,6 @@
 from django.urls import path
 
-from snake.views import IndexView, DetailView, OldSnakeView, SaleSnakeView, SearchSnakeView, NewBornView
+from snake.views import IndexView, DetailView, OldSnakeView, SaleSnakeView, NewBornView, SearchSnakeView
 
 app_name = 'snake'
 urlpatterns = [
