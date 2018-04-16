@@ -36,7 +36,7 @@ class OldSnakeView(generic.ListView):
         return Snake.objects.filter(old = True).order_by('family', 'scientific_name')
 
 class SaleSnakeView(generic.ListView):
-    template_name = 'snake/list_list.html'
+    template_name = 'snake/sale_list.html'
     context_object_name = 'snakes'
 
     def get_queryset(self, **kwargs):
