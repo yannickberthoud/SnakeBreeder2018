@@ -6,6 +6,7 @@
 {% block title %}<i>{{ snake.scientific_name }}</i>{% endblock %}
 
 {% block breadcrumb %}
+    <li><a href="{% url 'snake:sale' %}" title="Snake-Breeder - À vendre">À vendre</a> <span class="divider">/</span></li>
     <li><a href="" title="Snake-Breeder - {{ snake.family }}">{{ snake.family }}</a> <span class="divider">/</span></li>
     <li class="active">{{ snake.scientific_name }}</li>
 {% endblock %}
