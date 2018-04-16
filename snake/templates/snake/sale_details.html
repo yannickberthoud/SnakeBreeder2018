@@ -42,6 +42,9 @@
             {% if snake.price_couple %}
                 <li><i class="icon-li icon-ok"></i> Prix de couple: CHF {{ snake.price_couple|floatformat:2 }} </li>
             {% endif %}
+                <li><i class="icon-li icon-ok"></i> Soumis à autorisation:{% if snake.subject %} Oui{% else %} Non
+                    {% endif %} </li>
+            
         </ul>
         <br/>
     </div>
