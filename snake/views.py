@@ -45,10 +45,11 @@ class SaleSnakeView(generic.ListView):
 
 class SearchSnakeView(generic.DetailView):
     context_object_name = 'species_list'
+    model = SearchingSnake
 
-    def get_object(self):
+    def get_queryset(self):
         """Return the last five published questions."""
-        return super(SearchingSnake, self).get_object(pk=1)
+        return SearchingSnake.objects.filter(pk = 1)
 
 class DetailView(generic.DetailView):
     model = Snake
