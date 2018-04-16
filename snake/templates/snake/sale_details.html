@@ -60,7 +60,30 @@
         </div>
     </div>
 </div>
-
+<div class="clearfix"></div>
+    <!-- end description area -->
+    <div class="titleborder top40 clearfix">
+            <div>
+                 Aussi de mon élevage
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="list_carousel" style="height:230px;">
+                    <div class="carousel_nav">
+                        <a class="prev" id="car_prev" href="#"><span>prev</span></a>
+                        <a class="next" id="car_next" href="#"><span>next</span></a>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <div class="heightauto">
+                        <ul id="recent-projects" class="heightauto">
+                            {% get_breed snake.pk %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 {% endblock %}
 
 {% block javascripts %}

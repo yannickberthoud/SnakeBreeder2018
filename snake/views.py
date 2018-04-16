@@ -46,6 +46,7 @@ class SaleSnakeView(generic.ListView):
 class SaleSnakeDetailsView(generic.DetailView):
     model = SalingSnake
     template_name = 'snake/sale_details.html'
+    context_object_name = 'snake'
 
 class SearchSnakeView(generic.DetailView):
     #model = SearchingSnake
