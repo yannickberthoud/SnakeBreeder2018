@@ -33,7 +33,7 @@ class SnakeAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("scientific_name",)}
 
 admin.site.register(Snake, SnakeAdmin)
-"""
+
 class SearchingSnakeAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['species_list']}),
@@ -42,4 +42,3 @@ class SearchingSnakeAdmin(admin.ModelAdmin):
     list_display = ('species_list',)
 
 admin.site.register(SearchingSnake, SearchingSnakeAdmin)
-"""
