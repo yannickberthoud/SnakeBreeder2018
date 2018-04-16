@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Family, Venom, Snake, Album#, SearchingSnake
+from .models import Family, Venom, Snake, Album, SearchingSnake
 
 class FamilyAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
