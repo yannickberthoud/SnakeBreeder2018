@@ -52,23 +52,25 @@ class Snake(Reptile):
         verbose_name = 'Serpent'
         verbose_name_plural = 'Serpents'
 
-class SalingSnake(Reptile):
+class SalingSnake(models.Model):
     """ Snake for sales model """
-    DENTITIONS = (
-        ('A', 'Aglyphe'),
-        ('O', 'Opistoglyphe'),
-        ('P', 'Proteroglyphe'),
-        ('I', 'Opistodonte'),
-        ('S', 'Solenoglyphe')
-    )
     family = models.ForeignKey(Family, on_delete = models.CASCADE)
+    scientific_name = models.CharField(max_length = 32, verbose_name = "Nom")
+    slug = models.SlugField()
     venom = models.ManyToManyField(Venom, blank = True)
-    dentition = models.CharField(max_length = 1, choices = DENTITIONS, default = 'A')
+    disponibilities = models.CharField(max_length = 11, verbose_name = 'Disponibilité(s)', help_text = 'format: x.y.z')
+    subject = models.NullBooleanField(verbose_name = "Soumis à autorisation", blank = True, null = True)
+    comments = models.TextField()
     price = models.FloatField(verbose_name = "Prix")
     price_couple = models.FloatField(verbose_name = "Prix de couple", blank = True, null = True)
 
     def __str__(self):
         return self.scientific_name
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.slug = slugify(self.scientific_name)
+        return super(SalingSnake, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Espèce à vendre"

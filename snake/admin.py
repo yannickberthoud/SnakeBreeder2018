@@ -40,9 +40,9 @@ class AlbumForSaleInline(admin.TabularInline):
 
 class SalingSnakeAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['family', 'scientific_name', 'slug', 'sex', 'description']}),
-        ('Toxicologie', {'fields': ['venom', 'dentition']}),
-        ('Moeurs & Biotope', {'fields': ['moeurs', 'life', 'environment', 'repartition', 'reproduction']}),
+        (None, {'fields': ['family', 'scientific_name', 'slug', 'disponibilities', 'comments']}),
+        ('Toxicologie', {'fields': ['venom']}),
+        ('Contrôle', {'fields': ['subject']}),
         ('Tarification', {'fields': ['price', 'price_couple']})
     ]
     list_display = ('family', 'scientific_name')

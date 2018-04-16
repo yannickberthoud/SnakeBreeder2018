@@ -29,16 +29,10 @@
 <div class="row-fluid">
     <div class="span6">
         <p>
-            <b>disponibilité:</b> {{ snake.sex }}
+            <b>disponibilité:</b> {{ snake.disponibilities }}
         </p>
         <ul class="icons-ul">
             <li><i class="icon-li icon-ok"></i>Famille: {{ snake.family }}</li>
-            <li><i class="icon-li icon-ok"></i>Dentition: {{ snake.get_dentition_display }}</li>
-            <li><i class="icon-li icon-ok"></i>Répartition: {% for rep in snake.repartition.all %}{{ rep.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
-            <li><i class="icon-li icon-ok"></i>Environnement: {% for env in snake.environment.all %}{{ env.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
-            <li><i class="icon-li icon-ok"></i>Moeurs: {{ snake.get_moeurs_display }}</li>
-            <li><i class="icon-li icon-ok"></i>Mode de vie: {{ snake.get_life_display }}</li>
-            <li><i class="icon-li icon-ok"></i>Reproduction: {{ snake.get_reproduction_display }}</li> 
             {% if snake.venom %}
                 <li><i class="icon-li icon-ok"></i>Venin(s): {% for venom in snake.venom.all %}{{ venom.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
             {% else %}
@@ -55,7 +49,7 @@
         <div class="box effect2">
             <h3>Informations complémentaires</h3>
             <p>
-                {{ snake.description }}	
+                {{ snake.comments }}	
             </p>
         </div>
     </div>
