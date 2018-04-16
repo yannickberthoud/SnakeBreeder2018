@@ -48,7 +48,7 @@ class SearchSnakeView(generic.DetailView):
 
     def get_queryset(self, **kwargs):
         """Return the last five published questions."""
-        return SearchingSnake.objects.filter(pk=1)
+        return SearchingSnake.objects.get(pk=1)
 
 class DetailView(generic.DetailView):
     model = Snake
