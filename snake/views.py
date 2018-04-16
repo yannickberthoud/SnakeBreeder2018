@@ -1,5 +1,5 @@
 from django.views import generic
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404
 
 from snake.models import Family, Snake, SearchingSnake
 
@@ -43,10 +43,12 @@ class SaleSnakeView(generic.ListView):
 #        """Return the last five published questions."""
 #        return Snake.objects.filter(business = 'A').order_by('family', 'scientific_name')
 
-def SearchSnakeView(request):
-    species_list = get_object_or_404(SearchingSnake, pk=1)
-    
-    return render(request, 'snake/search_list.html', {'species_list': species_list})
+class SearchSnakeView(generic.DetailView):
+    context_object_name = 'species_list'
+
+    def get_queryset(self, **kwargs):
+        """Return the last five published questions."""
+        return SearchingSnake.objects.filter(pk=1)
 
 class DetailView(generic.DetailView):
     model = Snake
