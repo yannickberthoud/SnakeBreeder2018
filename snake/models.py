@@ -67,6 +67,13 @@ class SalingSnake(Reptile):
     price = models.FloatField(verbose_name = "Prix")
     price_couple = models.FloatField(verbose_name = "Prix de couple", blank = True)
 
+    def __str__(self):
+        return self.scientific_name
+
+    class Meta:
+        verbose_name = "Espèce à vendre"
+        verbose_name_plural = "Espèces à vendre"
+
 class SearchingSnake(models.Model):
     species_list = models.TextField(verbose_name = "Liste d'espèces")
 
