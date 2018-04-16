@@ -26,31 +26,41 @@
 {% endblock %}
 
 {% block content %}
+<div class="row-fluid">
+    <div class="span6">
+        <p>
+            <b>disponibilité:</b> {{ snake.sex }}
+        </p>
+        <ul class="icons-ul">
+            <li><i class="icon-li icon-ok"></i>Famille: {{ snake.family }}</li>
+            <li><i class="icon-li icon-ok"></i>Dentition: {{ snake.get_dentition_display }}</li>
+            <li><i class="icon-li icon-ok"></i>Répartition: {% for rep in snake.repartition.all %}{{ rep.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+            <li><i class="icon-li icon-ok"></i>Environnement: {% for env in snake.environment.all %}{{ env.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+            <li><i class="icon-li icon-ok"></i>Moeurs: {{ snake.get_moeurs_display }}</li>
+            <li><i class="icon-li icon-ok"></i>Mode de vie: {{ snake.get_life_display }}</li>
+            <li><i class="icon-li icon-ok"></i>Reproduction: {{ snake.get_reproduction_display }}</li> 
+            {% if snake.venom %}
+                <li><i class="icon-li icon-ok"></i>Venin(s): {% for venom in snake.venom.all %}{{ venom.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</li>
+            {% else %}
+                <li><i class="icon-li icon-ok"></i>Venin(s): non venimeux</li>
+            {% endif %}
+                <li><i class="icon-li icon-ok"></i> Prix: CHF {{ snake.price|floatformat:2 }} </li>
+            {% if snake.price_couple %}
+                <li><i class="icon-li icon-ok"></i> Prix de couple: CHF {{ snake.price_couple|floatformat:2 }} </li>
+            {% endif %}
+        </ul>
+        <br/>
+    </div>
+    <div class="span6">
+        <div class="box effect2">
+            <h3>Informations complémentaires</h3>
+            <p>
+                {{ snake.description }}	
+            </p>
+        </div>
+    </div>
+</div>
 
-<div class="clearfix"></div>
-    <!-- end description area -->
-    <div class="titleborder top40 clearfix">
-            <div>
-                 Aussi de mon élevage
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="list_carousel" style="height:230px;">
-                    <div class="carousel_nav">
-                        <a class="prev" id="car_prev" href="#"><span>prev</span></a>
-                        <a class="next" id="car_next" href="#"><span>next</span></a>
-                    </div>
-                    <div class="clearfix">
-                    </div>
-                    <div class="heightauto">
-                        <ul id="recent-projects" class="heightauto">
-                            {% get_breed snake.pk %}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
 {% endblock %}
 
 {% block javascripts %}
