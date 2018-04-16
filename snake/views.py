@@ -45,7 +45,6 @@ class SaleSnakeView(generic.ListView):
 
 class SearchSnakeView(request):
     species_list = get_object_or_404(SearchingSnake, pk=1)
-    
     return render(request, 'snake/search_list.html', {'species_list': species_list})
 
 class DetailView(generic.DetailView):
