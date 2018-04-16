@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('snake', '0015_delete_searchingsnake'),
+        
     ]
 
     operations = [
