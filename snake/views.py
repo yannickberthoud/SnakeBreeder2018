@@ -46,7 +46,7 @@ class SaleSnakeView(generic.ListView):
 class SearchSnakeView(generic.DetailView):
     context_object_name = 'species_list'
 
-    def get_queryset(self, **kwargs):
+    def get_queryset(self):
         """Return the last five published questions."""
         return SearchingSnake.objects.get(pk=1)
 
