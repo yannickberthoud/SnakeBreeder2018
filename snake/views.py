@@ -43,6 +43,10 @@ class SaleSnakeView(generic.ListView):
         """Return the last five published questions."""
         return SalingSnake.objects.order_by('family', 'scientific_name')
 
+class SaleSnakeDetailView(generic.DetailView):
+    model = SalingSnake
+    template_name = 'snake/details.html'
+
 class SearchSnakeView(generic.DetailView):
     #model = SearchingSnake
     template_name = 'snake/search_list.html'

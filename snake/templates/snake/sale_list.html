@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block page %}
+    À vendre
+{% endblock %}
+
+{% block title %}
+        À vendre
+{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="#" title="Snake-Breeder - Serpents">Serpents</a> <span class="divider">/</span></li>
+    <li class="active">À vendre</li>
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="top30">
+        {% for snake in snakes %}
+            <div class="boxportfolio4">
+                <div class="inneritem">
+                    <a href="{% url 'snake:sale_details' snake.family.slug snake.slug %}" title="Snake-Breeder - Serpents à vendre - {{ snake.scientific_name }}">
+                        {% for image in snake.snakesalbum.all %}
+                            {% if forloop.first %}
+                                <img src="{{ image.picture.url }}" alt="Snake-Breeder - Serpents à vendre : {{ snake.scientific_name }}" />
+                            {% endif %}
+                        {% endfor %}
+                    </a>
+                    <i>{{ snake.scientific_name }}</i>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
