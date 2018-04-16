@@ -44,12 +44,12 @@ class SaleSnakeView(generic.ListView):
 #        return Snake.objects.filter(business = 'A').order_by('family', 'scientific_name')
 
 class SearchSnakeView(generic.DetailView):
-    model = SearchingSnake
+    #model = SearchingSnake
     template_name = 'snake/search_list.html'
-    
+
     def get_queryset(self):
         """Return the last five published questions."""
-        return SearchingSnake.objects.filter(pk = 1)
+        return get_object_or_404(SearchingSnake, pk=1)
 
 class DetailView(generic.DetailView):
     model = Snake
