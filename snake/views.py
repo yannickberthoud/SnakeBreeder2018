@@ -43,7 +43,7 @@ class SaleSnakeView(generic.ListView):
 #        """Return the last five published questions."""
 #        return Snake.objects.filter(business = 'A').order_by('family', 'scientific_name')
 
-class SearchSnakeView(request):
+def SearchSnakeView(request):
     species_list = get_object_or_404(SearchingSnake, pk=1)
     return render(request, 'snake/search_list.html', {'species_list': species_list})
 
