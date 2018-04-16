@@ -46,6 +46,7 @@ class SaleSnakeView(generic.ListView):
 class SearchSnakeView(generic.DetailView):
     #model = SearchingSnake
     template_name = 'snake/search_list.html'
+    context_object_name = "object"
 
     def get_object(self):
         """Return the last five published questions."""
