@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block page %}
+    Espèces recherchées
+{% endblock %}
+
+{% block title %}
+    Espèces recherchées
+{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="#" title="Snake-Breeder - Serpents">Serpents</a> <span class="divider">/</span></li>
+    <li class="active">Recherchés</li>
+{% endblock %}
+
+{% block content %}
+    {{ species_list|linebreaksbr }}
+{% endblock %}

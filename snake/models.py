@@ -39,16 +39,9 @@ class Snake(Reptile):
         ('I', 'Opistodonte'),
         ('S', 'Solenoglyphe')
     )
-    BUSINESS = (
-        ('A', 'À vendre'),
-        ('R', 'Recherche')
-    )
     family = models.ForeignKey(Family, on_delete = models.CASCADE)
     venom = models.ManyToManyField(Venom, blank = True)
-    dentition = models.CharField(max_length = 1, choices = DENTITIONS, default = 'A')
-    price = models.FloatField(blank = True, null = True, verbose_name = "prix")
-    price_couple = models.FloatField(blank = True, null = True, verbose_name = "prix de couple")
-    business = models.CharField(max_length = 1, choices = BUSINESS, default = ' ', verbose_name = "Achat ou vente", blank = True, null = True)
+    dentition = models.CharField(max_length = 1, choices = DENTITIONS, default = 'A')    
     old = models.BooleanField(blank = True, verbose_name = 'Ancien serpent')
     newborn = models.BooleanField(blank = True, verbose_name = 'Nouvelles naissances')
 
@@ -58,6 +51,13 @@ class Snake(Reptile):
     class Meta:
         verbose_name = 'Serpent'
         verbose_name_plural = 'Serpents'
+
+class SearchingSnake(models.Model):
+    species_list = models.TextField(verbose_name = "Liste d'espèces")
+
+    def __str__(self):
+        return self.species_list
+
 
 class Album(models.Model):
     snake = models.ForeignKey(Snake, on_delete = models.CASCADE, related_name = "snakesalbum", related_query_name = "snakealbum")
