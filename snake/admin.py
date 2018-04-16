@@ -39,6 +39,6 @@ class SearchingSnakeAdmin(admin.ModelAdmin):
         (None, {'fields': ['species_list']}),
     ]
 
-    list_display = ('species_list')
+    list_display = ('species_list',)
 
 admin.site.register(SearchingSnake, SearchingSnakeAdmin)
