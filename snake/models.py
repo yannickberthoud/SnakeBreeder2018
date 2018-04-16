@@ -65,7 +65,7 @@ class SalingSnake(Reptile):
     venom = models.ManyToManyField(Venom, blank = True)
     dentition = models.CharField(max_length = 1, choices = DENTITIONS, default = 'A')
     price = models.FloatField(verbose_name = "Prix")
-    price_couple = models.FloatField(verbose_name = "Prix de couple", blank = True)
+    price_couple = models.FloatField(verbose_name = "Prix de couple", blank = True, null = True)
 
     def __str__(self):
         return self.scientific_name
