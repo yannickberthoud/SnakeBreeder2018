@@ -47,7 +47,7 @@ class SearchSnakeView(generic.DetailView):
     #model = SearchingSnake
     template_name = 'snake/search_list.html'
 
-    def get_queryset(self):
+    def get_object(self):
         """Return the last five published questions."""
         return get_object_or_404(SearchingSnake, pk=1)
 
