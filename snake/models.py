@@ -52,6 +52,21 @@ class Snake(Reptile):
         verbose_name = 'Serpent'
         verbose_name_plural = 'Serpents'
 
+class SalingSnake(Reptile):
+    """ Snake for sales model """
+    DENTITIONS = (
+        ('A', 'Aglyphe'),
+        ('O', 'Opistoglyphe'),
+        ('P', 'Proteroglyphe'),
+        ('I', 'Opistodonte'),
+        ('S', 'Solenoglyphe')
+    )
+    family = models.ForeignKey(Family, on_delete = models.CASCADE)
+    venom = models.ManyToManyField(Venom, blank = True)
+    dentition = models.CharField(max_length = 1, choices = DENTITIONS, default = 'A')
+    price = models.FloatField(verbose_name = "Prix")
+    price_couple = models.FloatField(verbose_name = "Prix de couple", blank = True)
+
 class SearchingSnake(models.Model):
     species_list = models.TextField(verbose_name = "Liste d'espèces")
 
@@ -65,6 +80,13 @@ class SearchingSnake(models.Model):
 class Album(models.Model):
     snake = models.ForeignKey(Snake, on_delete = models.CASCADE, related_name = "snakesalbum", related_query_name = "snakealbum")
     picture = models.ImageField(upload_to = 'public/uploads/snakes/')
+
+    def __str__(self):
+        return self.picture.path
+
+class AlbumForSale(models.Model):
+    snake = models.ForeignKey(SalingSnake, on_delete = models.CASCADE, related_name = "snakesalbum", related_query_name = "snakealbum")
+    picture = models.ImageField(upload_to = 'public/uploads/snakes/for_sale/')
 
     def __str__(self):
         return self.picture.path
