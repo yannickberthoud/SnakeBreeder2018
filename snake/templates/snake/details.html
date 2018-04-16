@@ -50,10 +50,10 @@
                     <li><i class="icon-li icon-ok"></i>Venin(s): non venimeux</li>
                 {% endif %}
                 {% if snake.price %}
-                    <li><i class="icon-li icon-ok"></i> Prix: CHF {{ snake.price }} </li>
+                    <li><i class="icon-li icon-ok"></i> Prix: CHF {{ snake.price|floatformat:2 }} </li>
                 {% endif %}
                 {% if snake.price_couple %}
-                    <li><i class="icon-li icon-ok"></i> Prix de couple: CHF {{ snake.price_couple }} </li>
+                    <li><i class="icon-li icon-ok"></i> Prix de couple: CHF {{ snake.price_couple|floatformat:2 }} </li>
                 {% endif %}
             </ul>
             <br/>
