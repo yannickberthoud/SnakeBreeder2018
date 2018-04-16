@@ -51,14 +51,13 @@ class Snake(Reptile):
     class Meta:
         verbose_name = 'Serpent'
         verbose_name_plural = 'Serpents'
-
+"""
 class SearchingSnake(models.Model):
     species_list = models.TextField(verbose_name = "Liste d'espèces")
 
     def __str__(self):
         return self.species_list
-
-
+"""
 class Album(models.Model):
     snake = models.ForeignKey(Snake, on_delete = models.CASCADE, related_name = "snakesalbum", related_query_name = "snakealbum")
     picture = models.ImageField(upload_to = 'public/uploads/snakes/')
