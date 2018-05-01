@@ -77,7 +77,7 @@ class="icon-phone"></i> Tel: +41 79 676 09 72
 							<li class="divider-vertical"></li>
 					                <li{% if request.resolver_match.view_name == 'snake:sale' %} class="active selected"{% endif %}><a href="{% url 'snake:sale' %}" title="Snake-Breeder - Serpents à vendre">À vendre</a></li>
                                     <li class="divider-vertical"></li>
-                                    <li{% if request.resolver_match.url_name == 'search' %} class="active selected"{% endif %}><a href="{% url 'snake:search' %}" title="Snake-Breeder - Serpents recherchés">Recherchés</a></li>
+                                    <li{% if request.resolver_match.url_name == 'snake:search' %} class="active selected"{% endif %}><a href="{% url 'snake:search' %}" title="Snake-Breeder - Serpents recherchés">Recherchés</a></li>
 							<li class="divider-vertical"></li>
 							<li{% if request.resolver_match.view_name == 'contact' %} class="active selected"{% endif %}><a href="{% url 'contact' %}" title="Snake-Breeder - Contact">Contact</a></li>
 							<li class="divider-vertical"></li>
