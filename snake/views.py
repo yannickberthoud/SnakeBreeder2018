@@ -48,14 +48,10 @@ class SaleSnakeDetailsView(generic.DetailView):
     template_name = 'snake/sale_details.html'
     context_object_name = 'snake'
 
-class SearchSnakeView(generic.DetailView):
-    #model = SearchingSnake
+class SearchSnakeView(generic.ListView):
+    model = SearchingSnake
     template_name = 'snake/search_list.html'
     context_object_name = "object"
-
-    def get_object(self):
-        """Return the last five published questions."""
-        return get_object_or_404(SearchSnakeView, pk=1)
 
 class DetailView(generic.DetailView):
     model = Snake
