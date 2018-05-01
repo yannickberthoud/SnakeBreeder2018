@@ -55,7 +55,7 @@ class SearchSnakeView(generic.DetailView):
 
     def get_object(self):
         """Return the last five published questions."""
-        return get_object_or_404(SearchingSnake, pk=1)
+        return get_object_or_404(SearchSnakeView, pk=1)
 
 class DetailView(generic.DetailView):
     model = Snake
