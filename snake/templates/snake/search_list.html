@@ -14,5 +14,7 @@
 {% endblock %}
 
 {% block content %}
-    {{ object|linebreaksbr }}
+    {% for o in object %}
+        {{ o|linebreaksbr }}
+    {% endfor %}
 {% endblock %}
