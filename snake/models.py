@@ -55,7 +55,7 @@ class Snake(Reptile):
 class SalingSnake(models.Model):
     """ Snake for sales model """
     family = models.ForeignKey(Family, on_delete = models.CASCADE)
-    scientific_name = models.CharField(max_length = 32, verbose_name = "Nom")
+    scientific_name = models.CharField(max_length = 100, verbose_name = "Nom")
     slug = models.SlugField()
     venom = models.ManyToManyField(Venom, blank = True)
     disponibilities = models.CharField(max_length = 11, verbose_name = 'Disponibilité(s)', help_text = 'format: x.y.z')
