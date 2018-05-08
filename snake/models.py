@@ -83,8 +83,8 @@ class SearchingSnake(models.Model):
         return self.species_list
 
     class Meta:
-        verbose_name = "Espèches recherchées"
-        verbose_name_plural = "Espèches recherchées"
+        verbose_name = "Espèces recherchées"
+        verbose_name_plural = "Espèces recherchées"
 
 class Album(models.Model):
     snake = models.ForeignKey(Snake, on_delete = models.CASCADE, related_name = "snakesalbum", related_query_name = "snakealbum")
